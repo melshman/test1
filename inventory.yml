@@ -20,6 +20,12 @@ ansible_connection=local
 [local]
 localhost ansible_connection=local
 
+
+[DN]
+DNWSW0001 ansible_host=192.168.2.101
+DNWSW0007 ansible_host=192.168.2.7
+
+
 [ctil-ios-upgrade]
 VTgroup_SW ansible_host=192.168.2.101
 VAEITSW007 ansible_host=192.168.2.7
