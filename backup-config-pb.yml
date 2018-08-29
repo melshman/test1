@@ -25,3 +25,4 @@
   - name: backup running config to file
     ios_config:
       backup: yes
+    tags: backup
