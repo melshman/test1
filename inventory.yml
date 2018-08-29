@@ -1,0 +1,57 @@
+
+# inventory (hosts)
+# [switches]
+# VAEITSW001
+# VAEITSW253
+# VAEITSW004
+# VAEITSW007
+
+# [routers]
+# VAEITSWDMVPN8
+
+# [firewalls]
+# VAEITFW001
+[all:vars]
+ansible_connection=local
+# ansible_python_interpreter=/home/kbyers/VENV/ansible/bin/python
+# ansible_user=admin
+# ansible_ssh_pass=VTgroup2013
+
+[local]
+localhost ansible_connection=local
+
+[ctil-ios-upgrade]
+VTgroup_SW ansible_host=192.168.2.101
+VAEITSW007 ansible_host=192.168.2.7
+
+[ctil-switches]
+VAEITSW001 ansible_host=192.168.2.1
+# # VAEITSW253 ansible_host=192.168.2.253
+# # VAEITSW004 ansible_host=192.168.2.4
+VAEITSW007 ansible_host=192.168.2.7
+
+[pentagon-access]
+Tenant0 ansible_host=192.168.1.40
+Primary ansible_host=192.168.1.41
+Secondary ansible_host=192.168.1.42
+CV1 ansible_host=192.168.1.50
+CV2 ansible_host=192.168.1.51
+CV3 ansible_host=192.168.1.52
+CV4 ansible_host=192.168.1.53
+CV6 ansible_host=192.168.1.54
+CV7 ansible_host=192.168.1.55
+CV8 ansible_host=192.168.1.56
+CV10 ansible_host=192.168.1.57
+CV11 ansible_host=192.168.1.58
+CV16 ansible_host=192.168.1.59
+
+
+[pentagon-core]
+Master-NXOS ansible_host=192.168.1.1 ansible_user=admin ansible_become=yes
+Secondary-NXOS ansible_host=192.168.1.2 ansible_user=admin ansible_become=yes
+
+# [ctil-routers]
+# # VAEITSWDMVPN8 ansible_host= 10.130.2.8
+
+# [firewalls]
+# # VAEITFW001 ansible_host=192.168.2.254

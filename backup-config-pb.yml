@@ -1,0 +1,27 @@
+---
+
+- name: cisco ios configuration backup
+  hosts: ctil-ios-upgrade
+  connection: local # menas that python code will be run locally on control machine, not remotely on host
+  gather_facts: no
+
+
+  tasks:
+# ##  VERIFIED EXCEPT FOR WHEN STATEMENT
+#   - name: SAVING CONFIGS
+#     ntc_save_config:
+#        platform: cisco_ios_ssh
+#        host: "{{ ansible_host }}"
+#        username: "{{ ansible_user }}"
+#        password: "{{ ansible_ssh_pass }}"
+#        local_file: backups/CONFIG_{{ ansible_host }}.cfg
+#     when: 
+#       - not stop_process
+#     tags: backup
+
+
+### VERIFIED
+### autoamtically creates backup in backup folder under playbook root folder
+  - name: backup running config to file
+    ios_config:
+      backup: yes
